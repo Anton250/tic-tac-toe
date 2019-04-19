@@ -9,10 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Game->close();
     ui->label_status->close();
     ui->pushButton_exit->close();
-    for (int i = 1; i < 4; i++){
-        for(int j = 1; j < 4; j++){
-            checkList[QString(i)+QString(j)] = false;
-        }
+    for (int i = 0; i < 9; i++){
+
+            checkList[i] = false;
+
     }
 
 }
@@ -30,7 +30,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_1_1->setText(XorO(str_answer));
         ui->label_statusOfMove->setText("Your move");
-        checkList["11"] = true;
+        checkList[0] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -46,7 +46,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_1_2->setText(XorO(str_answer));
         ui->label_statusOfMove->setText("Your move");
-        checkList["12"] = true;
+        checkList[1] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -62,7 +62,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_1_3->setText(XorO(str_answer));
          ui->label_statusOfMove->setText("Your move");
-        checkList["13"] = true;
+        checkList[2] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -78,7 +78,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_2_1->setText(XorO(str_answer));
          ui->label_statusOfMove->setText("Your move");
-        checkList["21"] = true;
+        checkList[3] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -94,7 +94,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_2_2->setText(XorO(str_answer));
          ui->label_statusOfMove->setText("Your move");
-        checkList["22"] = true;
+        checkList[4] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -110,7 +110,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_2_3->setText(XorO(str_answer));
          ui->label_statusOfMove->setText("Your move");
-        checkList["23"] = true;
+        checkList[5] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -126,7 +126,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_3_1->setText(XorO(str_answer));
          ui->label_statusOfMove->setText("Your move");
-        checkList["31"] = true;
+        checkList[6] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -142,7 +142,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_3_2->setText(XorO(str_answer));
          ui->label_statusOfMove->setText("Your move");
-        checkList["32"] = true;
+        checkList[7] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -158,7 +158,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->pushButton_3_3->setText(XorO(str_answer));
          ui->label_statusOfMove->setText("Your move");
-        checkList["33"] = true;
+        checkList[8] = true;
         turn = true;
         pos = str_answer.find("$lose");
         if(pos != std::string::npos){
@@ -238,10 +238,10 @@ void MainWindow::clearButtons()
         winsRows[i] = false;
     }
     countOfActivatedCells = 0;
-    for (int i = 1; i < 4; i++){
-        for(int j = 1; j < 4; j++){
-            checkList[QString(i)+QString(j)] = false;
-        }
+    for (int i = 0; i < 9; i++){
+
+            checkList[i] = false;
+
     }
     result = false;
     turn = false;
@@ -261,7 +261,7 @@ QString MainWindow::XorO(std::string str)
 bool MainWindow::checkWin()
 {
     QString first, second, third;
-    if (!winsRows[0] && checkList["11"] && checkList["12"] && checkList["13"]){
+    if (!winsRows[0] && checkList[0] && checkList[1] && checkList[2]){
         first = ui->pushButton_1_1->text();
         second = ui->pushButton_1_2->text();
         third = ui->pushButton_1_3->text();
@@ -271,7 +271,7 @@ bool MainWindow::checkWin()
         }
         return false;
     }
-    if (!winsRows[1] && checkList["21"] && checkList["22"] && checkList["23"]){
+    if (!winsRows[1] && checkList[3] && checkList[4] && checkList[5]){
         first = ui->pushButton_2_1->text();
         second = ui->pushButton_2_2->text();
         third = ui->pushButton_2_3->text();
@@ -281,7 +281,7 @@ bool MainWindow::checkWin()
         }
         return false;
     }
-    if (!winsRows[2] && checkList["31"] && checkList["32"] && checkList["33"]){
+    if (!winsRows[2] && checkList[6] && checkList[7] && checkList[8]){
         first = ui->pushButton_3_1->text();
         second = ui->pushButton_3_2->text();
         third = ui->pushButton_3_3->text();
@@ -291,7 +291,7 @@ bool MainWindow::checkWin()
         }
         return false;
     }
-    if (!winsRows[3] && checkList["11"] && checkList["21"] && checkList["31"]){
+    if (!winsRows[3] && checkList[0] && checkList[3] && checkList[6]){
         first = ui->pushButton_1_1->text();
         second = ui->pushButton_2_1->text();
         third = ui->pushButton_3_1->text();
@@ -301,7 +301,7 @@ bool MainWindow::checkWin()
         }
         return false;
     }
-    if (!winsRows[4] && checkList["12"] && checkList["22"] && checkList["32"]){
+    if (!winsRows[4] && checkList[1] && checkList[4] && checkList[7]){
         first = ui->pushButton_1_2->text();
         second = ui->pushButton_2_2->text();
         third = ui->pushButton_3_2->text();
@@ -311,7 +311,7 @@ bool MainWindow::checkWin()
         }
         return false;
     }
-    if (!winsRows[5] && checkList["13"] && checkList["23"] && checkList["33"]){
+    if (!winsRows[5] && checkList[2] && checkList[5] && checkList[8]){
         first = ui->pushButton_1_3->text();
         second = ui->pushButton_2_3->text();
         third = ui->pushButton_3_3->text();
@@ -321,7 +321,7 @@ bool MainWindow::checkWin()
         }
         return false;
     }
-    if (!winsRows[6] && checkList["11"] && checkList["22"] && checkList["33"]){
+    if (!winsRows[6] && checkList[0] && checkList[4] && checkList[8]){
         first = ui->pushButton_1_1->text();
         second = ui->pushButton_2_2->text();
         third = ui->pushButton_3_3->text();
@@ -331,7 +331,7 @@ bool MainWindow::checkWin()
         }
         return false;
     }
-    if (!winsRows[7] && checkList["13"] && checkList["22"] && checkList["31"]){
+    if (!winsRows[7] && checkList[2] && checkList[4] && checkList[6]){
         first = ui->pushButton_1_3->text();
         second = ui->pushButton_2_2->text();
         third = ui->pushButton_3_1->text();
@@ -368,9 +368,9 @@ void MainWindow::draw()
 void MainWindow::on_pushButton_1_1_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["11"]){
+        if(!checkList[0]){
             turn = false;
-             checkList["11"] = true;
+             checkList[0] = true;
               ui->pushButton_1_1->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;
@@ -399,9 +399,9 @@ void MainWindow::on_pushButton_1_1_clicked()
 void MainWindow::on_pushButton_1_2_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["12"]){
+        if(!checkList[1]){
             turn = false;
-            checkList["12"] = true;
+            checkList[1] = true;
             ui->pushButton_1_2->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;
@@ -432,9 +432,9 @@ void MainWindow::on_pushButton_1_2_clicked()
 void MainWindow::on_pushButton_1_3_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["13"]){
+        if(!checkList[2]){
             turn = false;
-             checkList["13"] = true;
+             checkList[2] = true;
              ui->pushButton_1_3->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;
@@ -465,9 +465,9 @@ void MainWindow::on_pushButton_1_3_clicked()
 void MainWindow::on_pushButton_2_1_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["21"]){
+        if(!checkList[3]){
             turn = false;
-            checkList["21"] = true;
+            checkList[3] = true;
             ui->pushButton_2_1->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;
@@ -498,9 +498,9 @@ void MainWindow::on_pushButton_2_1_clicked()
 void MainWindow::on_pushButton_2_2_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["22"]){
+        if(!checkList[4]){
             turn = false;
-             checkList["22"] = true;
+             checkList[4] = true;
              ui->pushButton_2_2->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;
@@ -532,9 +532,9 @@ void MainWindow::on_pushButton_2_2_clicked()
 void MainWindow::on_pushButton_2_3_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["23"]){
+        if(!checkList[5]){
             turn = false;
-            checkList["23"] = true;
+            checkList[5] = true;
             ui->pushButton_2_3->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;
@@ -565,9 +565,9 @@ void MainWindow::on_pushButton_2_3_clicked()
 void MainWindow::on_pushButton_3_1_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["31"]){
+        if(!checkList[6]){
             turn = false;
-            checkList["31"] = true;
+            checkList[6] = true;
             ui->pushButton_3_1->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;
@@ -598,9 +598,9 @@ void MainWindow::on_pushButton_3_1_clicked()
 void MainWindow::on_pushButton_3_2_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["32"]){
+        if(!checkList[7]){
             turn = false;
-            checkList["32"] = true;
+            checkList[7] = true;
             ui->pushButton_3_2->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;
@@ -631,9 +631,9 @@ void MainWindow::on_pushButton_3_2_clicked()
 void MainWindow::on_pushButton_3_3_clicked()
 {
     if(gameStarted && turn){
-        if(!checkList["33"]){
+        if(!checkList[8]){
             turn = false;
-             checkList["33"] = true;
+             checkList[8] = true;
              ui->pushButton_3_3->setText(userSign);
             result = checkWin();
             countOfActivatedCells++;

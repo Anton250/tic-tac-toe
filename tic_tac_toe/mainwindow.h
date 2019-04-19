@@ -20,7 +20,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QMap <QString, bool> checkList;
+    bool checkList[9] = {false, false, false, false, false, false, false, false, false};
     QString userSign;
     QString messageToServer;
     QByteArray arr;

@@ -216,18 +216,18 @@ QString MainWindow::checkWin()
         }
     }
     if (!winsRows[1] && checkList["21"] && checkList["22"] && checkList["23"]){
-        first = ui->pushButton_1_1->text();
-        second = ui->pushButton_1_2->text();
-        third = ui->pushButton_1_3->text();
+        first = ui->pushButton_2_1->text();
+        second = ui->pushButton_2_2->text();
+        third = ui->pushButton_2_3->text();
         winsRows[1] = true;
         if(first == second && first == third){
             return first;
         }
     }
     if (!winsRows[2] && checkList["31"] && checkList["32"] && checkList["33"]){
-        first = ui->pushButton_1_1->text();
-        second = ui->pushButton_1_2->text();
-        third = ui->pushButton_1_3->text();
+        first = ui->pushButton_3_1->text();
+        second = ui->pushButton_3_2->text();
+        third = ui->pushButton_3_3->text();
         winsRows[2] = true;
         if(first == second && first == third){
             return first;
@@ -235,26 +235,26 @@ QString MainWindow::checkWin()
     }
     if (!winsRows[3] && checkList["11"] && checkList["21"] && checkList["31"]){
         first = ui->pushButton_1_1->text();
-        second = ui->pushButton_1_2->text();
-        third = ui->pushButton_1_3->text();
+        second = ui->pushButton_2_1->text();
+        third = ui->pushButton_3_1->text();
         winsRows[3] = true;
         if(first == second && first == third){
             return first;
         }
     }
     if (!winsRows[4] && checkList["12"] && checkList["22"] && checkList["32"]){
-        first = ui->pushButton_1_1->text();
-        second = ui->pushButton_1_2->text();
-        third = ui->pushButton_1_3->text();
+        first = ui->pushButton_1_2->text();
+        second = ui->pushButton_2_2->text();
+        third = ui->pushButton_3_2->text();
         winsRows[4] = true;
         if(first == second && first == third){
             return first;
         }
     }
     if (!winsRows[5] && checkList["13"] && checkList["23"] && checkList["33"]){
-        first = ui->pushButton_1_1->text();
-        second = ui->pushButton_1_2->text();
-        third = ui->pushButton_1_3->text();
+        first = ui->pushButton_1_3->text();
+        second = ui->pushButton_2_3->text();
+        third = ui->pushButton_3_3->text();
         winsRows[5] = true;
         if(first == second && first == third){
             return first;
@@ -262,17 +262,17 @@ QString MainWindow::checkWin()
     }
     if (!winsRows[6] && checkList["11"] && checkList["22"] && checkList["33"]){
         first = ui->pushButton_1_1->text();
-        second = ui->pushButton_1_2->text();
-        third = ui->pushButton_1_3->text();
+        second = ui->pushButton_2_2->text();
+        third = ui->pushButton_3_3->text();
         winsRows[6] = true;
         if(first == second && first == third){
             return first;
         }
     }
     if (!winsRows[7] && checkList["13"] && checkList["22"] && checkList["31"]){
-        first = ui->pushButton_1_1->text();
-        second = ui->pushButton_1_2->text();
-        third = ui->pushButton_1_3->text();
+        first = ui->pushButton_1_3->text();
+        second = ui->pushButton_2_2->text();
+        third = ui->pushButton_3_1->text();
         winsRows[7] = true;
         if(first == second && first == third){
             return first;

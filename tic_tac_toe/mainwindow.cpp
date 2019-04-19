@@ -45,6 +45,7 @@ int MainWindow::readFromServer()
     pos = str_answer.find("12$");
     if(pos != std::string::npos){
         ui->pushButton_1_2->setText(XorO(str_answer));
+        ui->label_statusOfMove->setText("Your move");
         checkList["12"] = true;
         turn = true;
         pos = str_answer.find("$lose");
@@ -187,7 +188,7 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         str_answer.erase(0, 10);
         clearButtons();
-        gameStarted  = true;
+        gameStarted = true;
          ui->Game->show();
          ui->label_status->setText("Game started!");
         if (str_answer == "X"){
@@ -245,6 +246,8 @@ void MainWindow::clearButtons()
     }
     result = false;
     turn = false;
+    userSign = "";
+    messageToServer = "";
 }
 
 QString MainWindow::XorO(std::string str)

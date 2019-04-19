@@ -26,6 +26,11 @@ private:
     QByteArray arr;
     bool gameStarted = false;
     QString XorO(std::string str);
+    bool winsRows[8] = {false, false, false, false, false, false, false, false};
+    bool turn = false;
+    QString checkWin();
+    int countOfActivatedCells = 0;
+    QString result;
 private slots:
     int readFromServer();
     void disconnectClient();

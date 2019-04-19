@@ -58,9 +58,17 @@ void MyServer::slotReadClient()
 
     arr.clear();
     QString str = clientSocket->readAll();
-
+    arr.append(str);
     qDebug() << str << '\n';
-
+    if(str == "startGame!"){
+            Sleep(10000);
+            arr.clear();
+            str = "startGame$X";
+            arr.append(str);
+            clientSocket->write(arr);
+            arr.clear();
+            str = "startGame$O";
+    }
 
 
     arr.append(str);

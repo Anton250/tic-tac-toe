@@ -28,9 +28,9 @@ private:
     QString XorO(std::string str);
     bool winsRows[8] = {false, false, false, false, false, false, false, false};
     bool turn = false;
-    QString checkWin();
+    bool checkWin();
     int countOfActivatedCells = 0;
-    QString result;
+    bool result = false;
 private slots:
     int readFromServer();
     void disconnectClient();

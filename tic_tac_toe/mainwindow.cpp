@@ -190,7 +190,7 @@ void MainWindow::clearButtons()
             checkList[QString(i)+QString(j)] = false;
         }
     }
-
+    result = false;
 
 }
 
@@ -203,7 +203,7 @@ QString MainWindow::XorO(std::string str)
         return "O";
     }}
 
-QString MainWindow::checkWin()
+bool MainWindow::checkWin()
 {
     QString first, second, third;
     if (!winsRows[0] && checkList["11"] && checkList["12"] && checkList["13"]){
@@ -212,7 +212,7 @@ QString MainWindow::checkWin()
         third = ui->pushButton_1_3->text();
         winsRows[0] = true;
         if(first == second && first == third){
-            return first;
+            return true;
         }
     }
     if (!winsRows[1] && checkList["21"] && checkList["22"] && checkList["23"]){
@@ -221,7 +221,7 @@ QString MainWindow::checkWin()
         third = ui->pushButton_2_3->text();
         winsRows[1] = true;
         if(first == second && first == third){
-            return first;
+            return true;
         }
     }
     if (!winsRows[2] && checkList["31"] && checkList["32"] && checkList["33"]){
@@ -230,7 +230,7 @@ QString MainWindow::checkWin()
         third = ui->pushButton_3_3->text();
         winsRows[2] = true;
         if(first == second && first == third){
-            return first;
+            return true;
         }
     }
     if (!winsRows[3] && checkList["11"] && checkList["21"] && checkList["31"]){
@@ -239,7 +239,7 @@ QString MainWindow::checkWin()
         third = ui->pushButton_3_1->text();
         winsRows[3] = true;
         if(first == second && first == third){
-            return first;
+            return true;
         }
     }
     if (!winsRows[4] && checkList["12"] && checkList["22"] && checkList["32"]){
@@ -248,7 +248,7 @@ QString MainWindow::checkWin()
         third = ui->pushButton_3_2->text();
         winsRows[4] = true;
         if(first == second && first == third){
-            return first;
+            return true;
         }
     }
     if (!winsRows[5] && checkList["13"] && checkList["23"] && checkList["33"]){
@@ -257,7 +257,7 @@ QString MainWindow::checkWin()
         third = ui->pushButton_3_3->text();
         winsRows[5] = true;
         if(first == second && first == third){
-            return first;
+            return true;
         }
     }
     if (!winsRows[6] && checkList["11"] && checkList["22"] && checkList["33"]){
@@ -266,7 +266,7 @@ QString MainWindow::checkWin()
         third = ui->pushButton_3_3->text();
         winsRows[6] = true;
         if(first == second && first == third){
-            return first;
+            return true;
         }
     }
     if (!winsRows[7] && checkList["13"] && checkList["22"] && checkList["31"]){
@@ -275,10 +275,10 @@ QString MainWindow::checkWin()
         third = ui->pushButton_3_1->text();
         winsRows[7] = true;
         if(first == second && first == third){
-            return first;
+            return true;
         }
     }
-    return NULL;
+    return false;
 }
 
 
@@ -291,7 +291,7 @@ void MainWindow::on_pushButton_1_1_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_1_1->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "11$" + userSign + "$lose";
             } else if (countOfActivatedCells == 9) {
@@ -321,12 +321,14 @@ void MainWindow::on_pushButton_1_2_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_1_2->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "12$" + userSign + "$lose";
+                 clearButtons();
             } else if (countOfActivatedCells == 9) {
 
                 ui->label_statusOfMove->setText("Draw");
+                clearButtons();
 
                 messageToServer = "12$" + userSign + "$draw";
             } else {
@@ -351,12 +353,14 @@ void MainWindow::on_pushButton_1_3_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_1_3->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "13$" + userSign + "$lose";
+                 clearButtons();
             } else if (countOfActivatedCells == 9) {
 
                 ui->label_statusOfMove->setText("Draw");
+                clearButtons();
 
                 messageToServer = "13$" + userSign + "$draw";
             } else {
@@ -381,12 +385,14 @@ void MainWindow::on_pushButton_2_1_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_2_1->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "21$" + userSign + "$lose";
+                 clearButtons();
             } else if (countOfActivatedCells == 9) {
 
                 ui->label_statusOfMove->setText("Draw");
+                clearButtons();
 
                 messageToServer = "21$" + userSign + "$draw";
             } else {
@@ -411,12 +417,14 @@ void MainWindow::on_pushButton_2_2_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_2_2->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "22$" + userSign + "$lose";
+                 clearButtons();
             } else if (countOfActivatedCells == 9) {
 
                 ui->label_statusOfMove->setText("Draw");
+                clearButtons();
 
                 messageToServer = "22$" + userSign + "$draw";
 
@@ -442,12 +450,14 @@ void MainWindow::on_pushButton_2_3_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_2_3->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "23$" + userSign + "$lose";
+                 clearButtons();
             } else if (countOfActivatedCells == 9) {
 
                 ui->label_statusOfMove->setText("Draw");
+                clearButtons();
 
                 messageToServer = "23$" + userSign + "$draw";
             } else {
@@ -472,12 +482,14 @@ void MainWindow::on_pushButton_3_1_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_3_1->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "31$" + userSign + "$lose";
+                 clearButtons();
             } else if (countOfActivatedCells == 9) {
 
                 ui->label_statusOfMove->setText("Draw");
+                clearButtons();
 
                 messageToServer = "31$" + userSign + "$draw";
             } else {
@@ -502,14 +514,16 @@ void MainWindow::on_pushButton_3_2_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_3_2->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "32$" + userSign + "$lose";
+                 clearButtons();
             } else if (countOfActivatedCells == 9) {
 
                 ui->label_statusOfMove->setText("Draw");
 
                 messageToServer = "32$" + userSign + "$draw";
+                clearButtons();
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "32$" + userSign;
@@ -532,12 +546,14 @@ void MainWindow::on_pushButton_3_3_clicked()
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_3_3->setText(userSign);
-            if (result != NULL){
+            if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "33$" + userSign + "$lose";
+                 clearButtons();
             } else if (countOfActivatedCells == 9) {
 
                 ui->label_statusOfMove->setText("Draw");
+                clearButtons();
 
                 messageToServer = "33$" + userSign + "$draw";
             } else {

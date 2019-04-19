@@ -31,6 +31,8 @@ private:
     bool checkWin();
     int countOfActivatedCells = 0;
     bool result = false;
+    void lose();
+    void draw();
 private slots:
     int readFromServer();
     void disconnectClient();

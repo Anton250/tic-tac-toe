@@ -32,6 +32,14 @@ int MainWindow::readFromServer()
         ui->label_statusOfMove->setText("Your move");
         checkList["11"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("12$");
@@ -39,6 +47,14 @@ int MainWindow::readFromServer()
         ui->pushButton_1_2->setText(XorO(str_answer));
         checkList["12"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("13$");
@@ -47,6 +63,14 @@ int MainWindow::readFromServer()
          ui->label_statusOfMove->setText("Your move");
         checkList["13"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("21$");
@@ -55,6 +79,14 @@ int MainWindow::readFromServer()
          ui->label_statusOfMove->setText("Your move");
         checkList["21"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("22$");
@@ -63,6 +95,14 @@ int MainWindow::readFromServer()
          ui->label_statusOfMove->setText("Your move");
         checkList["22"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("23$");
@@ -71,6 +111,14 @@ int MainWindow::readFromServer()
          ui->label_statusOfMove->setText("Your move");
         checkList["23"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("31$");
@@ -79,6 +127,14 @@ int MainWindow::readFromServer()
          ui->label_statusOfMove->setText("Your move");
         checkList["31"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("32$");
@@ -87,6 +143,14 @@ int MainWindow::readFromServer()
          ui->label_statusOfMove->setText("Your move");
         checkList["32"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("33$");
@@ -95,6 +159,14 @@ int MainWindow::readFromServer()
          ui->label_statusOfMove->setText("Your move");
         checkList["33"] = true;
         turn = true;
+        pos = str_answer.find("$lose");
+        if(pos != std::string::npos){
+            lose();
+        }
+        pos = str_answer.find("$draw");
+        if(pos != std::string::npos){
+            draw();
+        }
         return 0;
     }
     pos = str_answer.find("wait$");
@@ -128,26 +200,6 @@ int MainWindow::readFromServer()
             userSign = "O";
         }
 
-        return 0;
-    }
-    pos = str_answer.find("$lose");
-    if(pos != std::string::npos){
-        ui->label_statusOfMove->setText("You lose.");
-        answer = "startGame!";
-        arr.clear();
-        arr.append(answer);
-        clientSocket->write(arr);
-        clearButtons();
-        return 0;
-    }
-    pos = str_answer.find("$draw");
-    if(pos != std::string::npos){
-        answer = "startGame!";
-        arr.clear();
-        arr.append(answer);
-        clientSocket->write(arr);
-        clearButtons();
-        ui->label_statusOfMove->setText("Draw.");
         return 0;
     }
     return 0;
@@ -191,7 +243,7 @@ void MainWindow::clearButtons()
         }
     }
     result = false;
-
+    turn = false;
 }
 
 QString MainWindow::XorO(std::string str)
@@ -279,6 +331,26 @@ bool MainWindow::checkWin()
         }
     }
     return false;
+}
+
+void MainWindow::lose()
+{
+    ui->label_statusOfMove->setText("You lose.");
+    QString answer = "startGame!";
+    arr.clear();
+    arr.append(answer);
+    clientSocket->write(arr);
+
+}
+
+void MainWindow::draw()
+{
+    QString answer = "startGame!";
+    arr.clear();
+    arr.append(answer);
+    clientSocket->write(arr);
+
+    ui->label_statusOfMove->setText("Draw.");
 }
 
 

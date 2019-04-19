@@ -6,6 +6,7 @@
 #include <QTcpSocket>
 #include <QMap>
 #include <QVector>
+#include <Windows.h>
 
 class MyServer : public QObject
 {

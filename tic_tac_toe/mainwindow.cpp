@@ -287,6 +287,7 @@ void MainWindow::on_pushButton_1_1_clicked()
     if(gameStarted && turn){
         if(!checkList["11"]){
             turn = false;
+             checkList["11"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_1_1->setText(userSign);
@@ -302,20 +303,21 @@ void MainWindow::on_pushButton_1_1_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "11$" + userSign;
             }}
-            checkList["11"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
 
         }
     }
-}
+
 
 void MainWindow::on_pushButton_1_2_clicked()
 {
     if(gameStarted && turn){
         if(!checkList["12"]){
             turn = false;
+            checkList["12"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_1_2->setText(userSign);
@@ -331,20 +333,21 @@ void MainWindow::on_pushButton_1_2_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "12$" + userSign;
             }}
-            checkList["12"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
 
         }
     }
-}
+
 
 void MainWindow::on_pushButton_1_3_clicked()
 {
     if(gameStarted && turn){
         if(!checkList["13"]){
             turn = false;
+             checkList["13"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_1_3->setText(userSign);
@@ -360,20 +363,21 @@ void MainWindow::on_pushButton_1_3_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "13$" + userSign;
             }}
-            checkList["13"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
 
         }
     }
-}
+
 
 void MainWindow::on_pushButton_2_1_clicked()
 {
     if(gameStarted && turn){
         if(!checkList["21"]){
             turn = false;
+            checkList["21"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_2_1->setText(userSign);
@@ -389,20 +393,21 @@ void MainWindow::on_pushButton_2_1_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "21$" + userSign;
             }}
-            checkList["21"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
 
         }
     }
-}
+
 
 void MainWindow::on_pushButton_2_2_clicked()
 {
     if(gameStarted && turn){
         if(!checkList["22"]){
             turn = false;
+             checkList["22"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_2_2->setText(userSign);
@@ -419,20 +424,21 @@ void MainWindow::on_pushButton_2_2_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "22$" + userSign;
             }}
-            checkList["22"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
 
         }
     }
-}
+
 
 void MainWindow::on_pushButton_2_3_clicked()
 {
     if(gameStarted && turn){
         if(!checkList["23"]){
             turn = false;
+            checkList["23"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_2_3->setText(userSign);
@@ -448,20 +454,21 @@ void MainWindow::on_pushButton_2_3_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "23$" + userSign;
             }}
-            checkList["23"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
 
         }
     }
-}
+
 
 void MainWindow::on_pushButton_3_1_clicked()
 {
     if(gameStarted && turn){
         if(!checkList["31"]){
             turn = false;
+            checkList["31"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_3_1->setText(userSign);
@@ -477,20 +484,21 @@ void MainWindow::on_pushButton_3_1_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "31$" + userSign;
             }}
-            checkList["31"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
 
         }
     }
-}
+
 
 void MainWindow::on_pushButton_3_2_clicked()
 {
     if(gameStarted && turn){
         if(!checkList["32"]){
             turn = false;
+            checkList["32"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_3_2->setText(userSign);
@@ -506,20 +514,21 @@ void MainWindow::on_pushButton_3_2_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "32$" + userSign;
             }}
-            checkList["32"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
 
         }
     }
-}
+
 
 void MainWindow::on_pushButton_3_3_clicked()
 {
     if(gameStarted && turn){
         if(!checkList["33"]){
             turn = false;
+             checkList["33"] = true;
             result = checkWin();
             countOfActivatedCells++;
              ui->pushButton_3_3->setText(userSign);
@@ -535,13 +544,13 @@ void MainWindow::on_pushButton_3_3_clicked()
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "33$" + userSign;
             }}
-            checkList["33"] = true;
+
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
         }
     }
-}
+
 
 void MainWindow::on_pushButton_exit_clicked()
 {

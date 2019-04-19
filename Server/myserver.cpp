@@ -61,7 +61,7 @@ void MyServer::slotReadClient()
     arr.append(str);
     qDebug() << str << '\n';
     if(str == "startGame!"){
-            Sleep(10000);
+            Sleep(2000);
             arr.clear();
             str = "startGame$X";
             arr.append(str);

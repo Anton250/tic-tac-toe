@@ -378,7 +378,7 @@ void MainWindow::on_pushButton_1_1_clicked()
             if (result){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "11$" + userSign + "$lose";
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 
@@ -410,7 +410,7 @@ void MainWindow::on_pushButton_1_2_clicked()
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "12$" + userSign + "$lose";
 
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 
@@ -443,7 +443,7 @@ void MainWindow::on_pushButton_1_3_clicked()
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "13$" + userSign + "$lose";
 
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 
@@ -476,7 +476,7 @@ void MainWindow::on_pushButton_2_1_clicked()
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "21$" + userSign + "$lose";
 
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 
@@ -509,7 +509,7 @@ void MainWindow::on_pushButton_2_2_clicked()
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "22$" + userSign + "$lose";
 
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 
@@ -543,7 +543,7 @@ void MainWindow::on_pushButton_2_3_clicked()
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "23$" + userSign + "$lose";
 
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 
@@ -576,7 +576,7 @@ void MainWindow::on_pushButton_3_1_clicked()
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "31$" + userSign + "$lose";
 
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 
@@ -609,7 +609,7 @@ void MainWindow::on_pushButton_3_2_clicked()
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "32$" + userSign + "$lose";
 
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 
@@ -642,7 +642,7 @@ void MainWindow::on_pushButton_3_3_clicked()
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "33$" + userSign + "$lose";
 
-            } else if (countOfActivatedCells == 9) {
+            } else if (countOfActivatedCells == 5) {
 
                 ui->label_statusOfMove->setText("Draw");
 

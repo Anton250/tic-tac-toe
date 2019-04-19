@@ -174,7 +174,6 @@ int MainWindow::readFromServer()
     if(pos != std::string::npos){
         ui->label_status->setText("Waiting for oponent");
         gameStarted = false;
-        clearButtons();
         return 0;
     }
     pos = str_answer.find("userDisconnected$");

@@ -186,6 +186,7 @@ int MainWindow::readFromServer()
     pos = str_answer.find("startGame$");
     if(pos != std::string::npos){
         str_answer.erase(0, 10);
+        clearButtons();
         gameStarted  = true;
          ui->Game->show();
          ui->label_status->setText("Game started!");

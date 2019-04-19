@@ -386,11 +386,14 @@ void MainWindow::on_pushButton_1_1_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "11$" + userSign;
-            }}
+            }
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+        }
+
+
 
         }
     }
@@ -419,11 +422,14 @@ void MainWindow::on_pushButton_1_2_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "12$" + userSign;
-            }}
+            }
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+        }
+
+
 
         }
     }
@@ -452,11 +458,15 @@ void MainWindow::on_pushButton_1_3_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "13$" + userSign;
-            }}
+            }
+
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+        }
+
+
 
         }
     }
@@ -485,11 +495,15 @@ void MainWindow::on_pushButton_2_1_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "21$" + userSign;
-            }}
+            }
+
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+        }
+
+
 
         }
     }
@@ -519,11 +533,15 @@ void MainWindow::on_pushButton_2_2_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "22$" + userSign;
-            }}
+            }
+
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+        }
+
+
 
         }
     }
@@ -552,11 +570,15 @@ void MainWindow::on_pushButton_2_3_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "23$" + userSign;
-            }}
+            }
+
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+        }
+
+
 
         }
     }
@@ -585,11 +607,14 @@ void MainWindow::on_pushButton_3_1_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "31$" + userSign;
-            }}
+            }
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+
+        }
+
 
         }
     }
@@ -618,11 +643,14 @@ void MainWindow::on_pushButton_3_2_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "32$" + userSign;
-            }}
+            }
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+        }
+
+
 
         }
     }
@@ -651,11 +679,14 @@ void MainWindow::on_pushButton_3_3_clicked()
             } else {
                 ui->label_statusOfMove->setText("Your oponent moving");
                 messageToServer = "33$" + userSign;
-            }}
+            }
 
             arr.clear();
             arr.append(messageToServer);
             clientSocket->write(arr);
+        }
+
+
         }
     }
 

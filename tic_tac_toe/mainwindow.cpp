@@ -269,7 +269,7 @@ bool MainWindow::checkWin()
         if(first == second && first == third){
             return true;
         }
-        return false;
+
     }
     if (!winsRows[1] && checkList[3] && checkList[4] && checkList[5]){
         first = ui->pushButton_2_1->text();
@@ -279,7 +279,7 @@ bool MainWindow::checkWin()
         if(first == second && first == third){
             return true;
         }
-        return false;
+
     }
     if (!winsRows[2] && checkList[6] && checkList[7] && checkList[8]){
         first = ui->pushButton_3_1->text();
@@ -289,7 +289,7 @@ bool MainWindow::checkWin()
         if(first == second && first == third){
             return true;
         }
-        return false;
+
     }
     if (!winsRows[3] && checkList[0] && checkList[3] && checkList[6]){
         first = ui->pushButton_1_1->text();
@@ -299,7 +299,7 @@ bool MainWindow::checkWin()
         if(first == second && first == third){
             return true;
         }
-        return false;
+
     }
     if (!winsRows[4] && checkList[1] && checkList[4] && checkList[7]){
         first = ui->pushButton_1_2->text();
@@ -309,7 +309,7 @@ bool MainWindow::checkWin()
         if(first == second && first == third){
             return true;
         }
-        return false;
+
     }
     if (!winsRows[5] && checkList[2] && checkList[5] && checkList[8]){
         first = ui->pushButton_1_3->text();
@@ -319,7 +319,7 @@ bool MainWindow::checkWin()
         if(first == second && first == third){
             return true;
         }
-        return false;
+
     }
     if (!winsRows[6] && checkList[0] && checkList[4] && checkList[8]){
         first = ui->pushButton_1_1->text();
@@ -329,7 +329,7 @@ bool MainWindow::checkWin()
         if(first == second && first == third){
             return true;
         }
-        return false;
+
     }
     if (!winsRows[7] && checkList[2] && checkList[4] && checkList[6]){
         first = ui->pushButton_1_3->text();
@@ -339,7 +339,7 @@ bool MainWindow::checkWin()
         if(first == second && first == third){
             return true;
         }
-        return false;
+
     }
     return false;
 }
@@ -370,12 +370,12 @@ void MainWindow::on_pushButton_1_1_clicked()
     if(gameStarted && turn){
         if(!checkList[0]){
             turn = false;
-             checkList[0] = true;
-              ui->pushButton_1_1->setText(userSign);
-            result = checkWin();
+            checkList[0] = true;
+            ui->pushButton_1_1->setText(userSign);
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "11$" + userSign + "$lose";
             } else if (countOfActivatedCells == 5) {
@@ -406,10 +406,10 @@ void MainWindow::on_pushButton_1_2_clicked()
             turn = false;
             checkList[1] = true;
             ui->pushButton_1_2->setText(userSign);
-            result = checkWin();
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "12$" + userSign + "$lose";
 
@@ -440,12 +440,12 @@ void MainWindow::on_pushButton_1_3_clicked()
     if(gameStarted && turn){
         if(!checkList[2]){
             turn = false;
-             checkList[2] = true;
-             ui->pushButton_1_3->setText(userSign);
-            result = checkWin();
+            checkList[2] = true;
+            ui->pushButton_1_3->setText(userSign);
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "13$" + userSign + "$lose";
 
@@ -479,10 +479,10 @@ void MainWindow::on_pushButton_2_1_clicked()
             turn = false;
             checkList[3] = true;
             ui->pushButton_2_1->setText(userSign);
-            result = checkWin();
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "21$" + userSign + "$lose";
 
@@ -514,12 +514,12 @@ void MainWindow::on_pushButton_2_2_clicked()
     if(gameStarted && turn){
         if(!checkList[4]){
             turn = false;
-             checkList[4] = true;
-             ui->pushButton_2_2->setText(userSign);
-            result = checkWin();
+            checkList[4] = true;
+            ui->pushButton_2_2->setText(userSign);
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "22$" + userSign + "$lose";
 
@@ -554,10 +554,10 @@ void MainWindow::on_pushButton_2_3_clicked()
             turn = false;
             checkList[5] = true;
             ui->pushButton_2_3->setText(userSign);
-            result = checkWin();
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "23$" + userSign + "$lose";
 
@@ -591,10 +591,10 @@ void MainWindow::on_pushButton_3_1_clicked()
             turn = false;
             checkList[6] = true;
             ui->pushButton_3_1->setText(userSign);
-            result = checkWin();
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "31$" + userSign + "$lose";
 
@@ -627,10 +627,10 @@ void MainWindow::on_pushButton_3_2_clicked()
             turn = false;
             checkList[7] = true;
             ui->pushButton_3_2->setText(userSign);
-            result = checkWin();
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "32$" + userSign + "$lose";
 
@@ -661,12 +661,12 @@ void MainWindow::on_pushButton_3_3_clicked()
     if(gameStarted && turn){
         if(!checkList[8]){
             turn = false;
-             checkList[8] = true;
-             ui->pushButton_3_3->setText(userSign);
-            result = checkWin();
+            checkList[8] = true;
+            ui->pushButton_3_3->setText(userSign);
+
             countOfActivatedCells++;
 
-            if (result){
+            if (checkWin()){
                  ui->label_statusOfMove->setText("You win!");
                  messageToServer = "33$" + userSign + "$lose";
 

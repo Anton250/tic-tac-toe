@@ -214,7 +214,7 @@ void MainWindow::disconnectClient()
 void MainWindow::on_pushButton_start_clicked()
 {
     clientSocket = new QTcpSocket;
-    clientSocket->connectToHost("127.0.0.1", 6000);
+    clientSocket->connectToHost("192.168.1.66", 6000);
     connect(clientSocket, &QTcpSocket::readyRead, this, &MainWindow::readFromServer);
     connect(clientSocket, &QTcpSocket::disconnected, this, &MainWindow::disconnectClient);
     ui->pushButton_start->close();
